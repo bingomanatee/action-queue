@@ -8,7 +8,7 @@
  */
 import { BehaviorSubject, Subject } from 'rxjs';
 
-const _id = 0;
+let _id = 0;
 
 export class Task extends BehaviorSubject {
   constructor(queue, fn, args = []) {
@@ -18,6 +18,9 @@ export class Task extends BehaviorSubject {
     super({
       fn, args, status: 'new', queue,
     });
+    this.$id = ++_id;
+
+    this.$name = fn.name ? fn.name: this.$id;
   }
 
   get isDone() {
@@ -26,6 +29,9 @@ export class Task extends BehaviorSubject {
   }
 
   get status() {
+    if (this._value.error) {
+      return 'error';
+    }
     if (this.isStopped) {
       return 'done';
     }

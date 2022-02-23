@@ -77,7 +77,7 @@ export default class ActionQueue extends EventEmitter {
       console.warn('attempt to perform a non-new task', task);
       return;
     }
-    
+
     try {
       task.next({...task.value, status: 'active'});
       const result = await fn(task, ...args);
@@ -119,7 +119,7 @@ export default class ActionQueue extends EventEmitter {
         self.tasks.next(self.tasks.value);
       },
       error(err) {
-        
+
       }
     });
     return task;
@@ -134,7 +134,7 @@ export default class ActionQueue extends EventEmitter {
         done();
         sub.unsubscribe();
       });
-      
+
       sub = task.subscribe({
         next(manifest) {
           if (manifest.status === 'done') {
