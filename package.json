@@ -1,6 +1,6 @@
 {
   "name": "@wonderlandlabs/action-queue",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A process throttler",
   "main": "lib/index.js",
   "module": "es/index.js",
