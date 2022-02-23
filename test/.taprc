@@ -41,7 +41,7 @@ test-arg: []
 test-env: []
 test-ignore: $.
 test-regex: ((\/|^)(tests?|__tests?__)\/.*|\.(tests?|spec)|^\/?tests?)\.([mc]js|[jt]sx?)$
-timeout: 30
+timeout: 100
 ts: false
 version: false
 versions: false
